@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://cufruow5ysleq"]
+
+[ext_resource type="PackedScene" uid="uid://dwhxlp6qdq2if" path="res://Truck.tscn" id="1_wg0te"]
+
+[node name="TrainCar" type="Node3D"]
+
+[node name="TruckBack" parent="." instance=ExtResource( "1_wg0te" )]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 0)
+
+[node name="TruckFront" parent="." instance=ExtResource( "1_wg0te" )]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 0)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.38636, 0)
+size = Vector3(13.8452, 0.295467, 3.64348)

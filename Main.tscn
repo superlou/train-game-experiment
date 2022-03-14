@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=3 uid="uid://cvtln687jaknc"]
+
+[ext_resource type="PackedScene" uid="uid://dcr6fdpsjntey" path="res://TruckSet.tscn" id="1_5lehd"]
+
+[sub_resource type="Curve3D" id="Curve3D_cgjxl"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0.0309469, 0, -0.0091306, -3.33491, 0.0124512, -0.00832942, 3.33491, -0.0124512, 0.00832942, 29.6823, 0, -0.168136, 0.0207138, 0.265102, -2.67543, -0.0207138, -0.265102, 2.67543, 35.3492, 0, 6.38037, 0.0629654, 0, -3.33722, -0.0629654, 0, 3.33722, 35.6641, 0, 16.8958, 5.75797, 0, 0.323008, -5.75797, 0, -0.323008, 26.0932, 0, 21.6183, 4.91138, 0, 0.125935, -4.91138, 0, -0.125935, 2.35482, 0, 21.2405, 0.22275, 0, 6.21086, -0.22275, 0, -6.21086, -4.92018, 0, 8.85888, -0.0671396, 0, 0.99241, 0.0671396, 0, -0.99241, -4.92018, 0, -4.83056, -1.1906, 0, 0.0310971, 1.1906, 0, -0.0310971, -2.06325, 0, -6.97325, 0, 0, 0, 0, 0, 0, 4.68227, 0, -6.89389),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+}
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_rjjh8"]
+
+[sub_resource type="Sky" id="Sky_bigmc"]
+sky_material = SubResource( "ProceduralSkyMaterial_rjjh8" )
+
+[sub_resource type="Environment" id="Environment_svb8m"]
+background_mode = 2
+sky = SubResource( "Sky_bigmc" )
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.972841, 0.231476, 0, -0.231476, 0.972841, 13.0136, 4.70562, 11.1973)
+
+[node name="Track" type="Path3D" parent="."]
+curve = SubResource( "Curve3D_cgjxl" )
+
+[node name="TruckSet" parent="." instance=ExtResource( "1_5lehd" )]
+front_truck_pos = 15.0
+track_path = NodePath("../Track")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( "Environment_svb8m" )
